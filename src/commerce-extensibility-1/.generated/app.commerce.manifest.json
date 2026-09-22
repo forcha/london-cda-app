@@ -1,0 +1,49 @@
+{
+  "businessConfig": {
+    "schema": [
+      {
+        "default": "https://aisenseapi.com/services/v1/webhook_capture",
+        "label": "Welcome Service URL",
+        "name": "welcome_service_url",
+        "type": "url"
+      }
+    ]
+  },
+  "eventing": {
+    "commerce": [
+      {
+        "events": [
+          {
+            "description": "Triggered when a Commerce customer account is saved and the action skips later profile and address updates",
+            "fields": [
+              {
+                "name": "email"
+              },
+              {
+                "name": "created_at"
+              },
+              {
+                "name": "updated_at"
+              }
+            ],
+            "label": "Customer Created",
+            "name": "observer.customer_save_commit_after",
+            "runtimeActions": [
+              "customer-welcome/handle-customer-created"
+            ]
+          }
+        ],
+        "provider": {
+          "description": "Subscribes to customer save events and notifies a welcome service for new accounts",
+          "label": "Customer Welcome Notifier"
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "description": "Notifies an external welcome service when a genuinely new Commerce customer account is created, using the event's own creation timestamp.",
+    "displayName": "Customer Welcome Notifier",
+    "id": "customer-welcome-notifier",
+    "version": "1.1.0"
+  }
+}

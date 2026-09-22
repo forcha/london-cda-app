@@ -1,0 +1,25 @@
+{
+  "name": "customer-welcome-notifier",
+  "version": "1.1.0",
+  "private": true,
+  "dependencies": {
+    "@adobe/aio-commerce-lib-app": "^1.11.0",
+    "@adobe/aio-commerce-lib-config": "^1.8.0",
+    "@adobe/aio-commerce-sdk": "^1.4.2",
+    "@ljharb/tsconfig": "^0.2.3",
+    "ts-loader": "^9.6.2",
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "@tsconfig/bases": "^1.0.28"
+  },
+  "description": "Notifies an external welcome service when a genuinely new Commerce customer account is created, using the event's own creation timestamp.",
+  "scripts": {
+    "typecheck:actions": "tsc --noEmit -p tsconfig.json",
+    "typecheck": "npm run typecheck:actions",
+    "postinstall": "npx aio-commerce-lib-app hooks postinstall"
+  },
+  "imports": {
+    "#app.commerce.config": "./src/commerce-extensibility-1/.generated/app.commerce.config.js"
+  }
+}

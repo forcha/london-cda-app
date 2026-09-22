@@ -1,0 +1,8 @@
+[
+  {
+    "default": "https://aisenseapi.com/services/v1/webhook_capture",
+    "label": "Welcome Service URL",
+    "name": "welcome_service_url",
+    "type": "url"
+  }
+]
